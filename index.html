@@ -59,6 +59,9 @@
     .header-action-button:hover { background-color: var(--button-hover-bg); transform: scale(1.05); }
 
     @media (max-width: 768px) {
+        body {
+            padding-bottom: calc(var(--footer-height, 60px) + 2rem);
+        }
       .banner {
         flex-direction: row;
         align-items: center;
@@ -115,7 +118,7 @@
     /* Hero Section */
     .hero-section {
         text-align: center;
-        padding: 4rem 1rem;
+        padding: 1rem 1rem;
     }
     .hero-section h1 {
         font-size: clamp(2rem, 5vw, 3.5rem);
