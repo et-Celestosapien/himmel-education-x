@@ -7,11 +7,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles/shared-theme.css">
   <style>
-    /* --- LAYOUT OVERHAUL FOR FIXED HEADER/FOOTER --- */
+    /* --- LAYOUT OVERHAUL FOR FIXED HEADER/FOOTER (Consistent with index.html) --- */
     body {
       overflow-y: auto !important;
-      padding-top: calc(var(--header-height, 80px) + 1rem);
-      padding-bottom: 2rem;
+      padding-top: calc(var(--header-height, 80px) + 2rem); /* Space for the header */
+      padding-bottom: 100px; /* Generous space for the footer */
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
@@ -30,14 +30,87 @@
         max-width: 1200px;
         margin: 0 auto;
         padding: 1rem;
+        padding-bottom: 3rem;
     }
 
-    /* Header Buttons */
-    .header-auth-buttons .btn {
-        margin: 0 0.5rem;
-        width: auto;
-        max-width: 120px;
+    /* --- HEADER STYLES (Consistent with index.html) --- */
+    .banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      padding: 1rem 1.5rem;
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: var(--banner-glass-bg);
+      backdrop-filter: blur(15px) saturate(180%);
+      -webkit-backdrop-filter: blur(15px) saturate(180%);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid var(--banner-glass-border);
+      gap: 1rem;
     }
+    .logo-and-description { display: flex; align-items: center; gap: 0.8rem; flex-shrink: 1; min-width: 0; text-decoration: none; }
+    .logo-and-description .logo { height: 50px; flex-shrink: 0; }
+    .logo-and-description .description { text-align: left; flex-shrink: 1; min-width: 0; }
+    .logo-and-description h2, .logo-and-description p { margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .header-controls { display: flex; align-items: center; gap: 0.75rem; flex-wrap: nowrap; flex-shrink: 0; margin-left: auto; }
+    .header-action-button { width: 44px; height: 44px; border-radius: 50%; padding: 0; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; background-color: var(--button-bg); color: var(--button-text); border: none; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.2); flex-shrink: 0; text-decoration: none; }
+    .header-action-button:hover { background-color: var(--button-hover-bg); transform: scale(1.05); }
+
+    @media (max-width: 768px) {
+      .banner {
+        flex-direction: row;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        gap: 0.5rem;
+      }
+      .logo-and-description .logo { height: clamp(35px, 8vw, 45px); }
+      .logo-and-description {
+        flex-grow: 1;
+        flex-shrink: 1;
+        max-width: calc(100% - 130px);
+        justify-content: flex-start;
+        margin-right: 0.5rem;
+      }
+      .logo-and-description h2, .logo-and-description p {
+          font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+      }
+      .header-controls {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-end;
+        padding-right: 1rem;
+        margin-left: 0;
+        align-items: center;
+        min-width: fit-content;
+        flex-shrink: 0;
+      }
+      .header-controls::-webkit-scrollbar { display: none; }
+      .header-controls { -ms-overflow-style: none; scrollbar-width: none; }
+
+      .header-action-button {
+          width: clamp(38px, 10vw, 44px);
+          height: clamp(38px, 10vw, 44px);
+          font-size: clamp(1rem, 2.5vw, 1.2rem);
+      }
+    }
+
+    @media (max-width: 480px) {
+        .banner {
+            padding: 0.5rem 0.75rem;
+        }
+        .logo-and-description {
+            max-width: calc(100% - 120px);
+        }
+        .header-action-button {
+            width: 36px;
+            height: 36px;
+            font-size: 0.9rem;
+        }
+    }
+
 
     /* Hero Section */
     .hero-section {
@@ -47,7 +120,12 @@
     .hero-section h1 {
         font-size: clamp(2rem, 5vw, 3.5rem);
         margin-bottom: 1rem;
-        line-height: 1.2;
+    }
+    .hero-section h2 {
+        font-size: clamp(1.2rem, 4vw, 1.75rem);
+        margin-bottom: 1.5rem;
+        color: var(--muted-text);
+        font-weight: 400;
     }
     .hero-section p {
         font-size: clamp(1rem, 2.5vw, 1.25rem);
@@ -58,13 +136,13 @@
     }
 
     /* Features Grid */
-    .features-grid, .modules-grid {
+    .features-grid, .modules-grid, .contact-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 1.5rem;
         margin-top: 2rem;
     }
-    .feature-card, .module-card {
+    .feature-card, .module-card, .contact-card {
         background-color: var(--card-bg);
         border: 1px solid var(--card-border);
         border-radius: 12px;
@@ -72,7 +150,7 @@
         text-align: center;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .feature-card:hover, .module-card:hover {
+    .feature-card:hover, .module-card:hover, .contact-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
@@ -81,7 +159,7 @@
         color: var(--accent-color);
         margin-bottom: 1rem;
     }
-    .feature-card h3, .module-card h3 {
+    .feature-card h3, .module-card h3, .contact-card h3 {
         font-size: 1.25rem;
         margin-bottom: 0.5rem;
     }
@@ -112,83 +190,87 @@
         border: 1px solid var(--card-border);
     }
 
-    /* Footer Section */
-    .landing-footer {
-        text-align: center;
-        padding: 3rem 1rem;
-        margin-top: 4rem;
-        background-color: var(--banner-bg);
-        border-top: 1px solid var(--card-border);
-        border-radius: 12px;
-    }
-    .footer-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-        align-items: center;
-    }
-    .footer-section h3 {
-        color: var(--accent-color);
-        margin-bottom: 1rem;
-    }
-    .footer-section p, .footer-section a {
-        color: var(--muted-text);
-        text-decoration: none;
-        line-height: 1.8;
-    }
-    .footer-section a:hover {
-        color: var(--text-color);
-    }
-    .qr-code img {
+    /* Specific styles for new contact cards */
+    .contact-card .qr-code img {
         width: 120px;
         height: 120px;
         border-radius: 8px;
         border: 2px solid var(--card-border);
+        margin-top: 1rem;
     }
-    .himmel-logo {
-        height: 40px;
-        vertical-align: middle;
-        margin: 0 0.5rem;
+    .contact-card .himmel-logo-large {
+        height: 60px;
+        margin: 1rem auto;
+        display: block;
     }
-    .created-by {
-        margin-top: 3rem;
-        padding-top: 2rem;
-        border-top: 1px solid var(--card-border);
-        font-size: 0.9rem;
+    .contact-card p, .contact-card a {
         color: var(--muted-text);
+        text-decoration: none;
+        line-height: 1.8;
+    }
+    .contact-card a:hover {
+        color: var(--text-color);
+    }
+    .contact-card i {
+        margin-right: 0.5rem;
+        color: var(--accent-color);
+    }
+
+
+    /* Footer Styling (from index.html) */
+    footer.banner {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--banner-glass-border);
+      border-bottom: none;
+      box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+      justify-content: center;
+      text-align: center;
+      margin-top: 4rem;
+      background-color: var(--banner-glass-bg);
+      backdrop-filter: blur(15px) saturate(180%);
+      -webkit-backdrop-filter: blur(15px) saturate(180%);
+    }
+    footer.banner p {
+        margin: 0;
+        font-size: clamp(0.7rem, 2vw, 0.9rem);
+        color: var(--text-color);
+    }
+    footer.banner .himmel-logo {
+        height: 20px;
+        vertical-align: middle;
+        margin: 0 0.25rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header class="banner">
-    <div class="logo-and-description">
+    <a href="homepage.html" class="logo-and-description">
       <img src="./imgs/OncoEdge Logo.png" alt="OncoEdge Logo" class="logo">
       <div class="description">
         <h2 class="gradient-text">OncoEdge</h2>
       </div>
-    </div>
-    <div class="header-auth-buttons">
-        <a href="auth.html?action=login" class="btn btn-secondary">LOG IN</a>
-        <a href="auth.html?action=signup" class="btn btn-primary">SIGN UP</a>
+    </a>
+    <div class="header-controls">
+        <!-- Login button removed for consistency -->
+        <button class="header-action-button" id="themeToggle" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+        </button>
     </div>
   </header>
 
-  <!-- Main Content -->
   <div class="landing-container">
     
-    <!-- Hero Section -->
     <section class="hero-section">
       <h1 class="gradient-text">OncoEdge</h1>
       <h2>The World’s Largest Oncology Question Bank</h2>
-      <p>Designed to raise training standards and make quality
- education accessible, it offers exam-relevant
- questions for trainees worldwide</p>
-      <a href="auth.html?action=signup" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;">Get Started Now</a>
+      <p> Developed by Dr. A. Jamshed with support from Himmel Pharma, OncoEdge is
+ the world’s largest oncology MCQ bank. Built to raise training standards and
+ make quality education accessible, it offers board-style questions for
+ trainees worldwide. Master oncology with confidence.</p>
+      <a href="auth.html" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;">Log In to Get Started</a>
     </section>
 
-    <!-- Features Section -->
     <section>
         <h2 class="section-title gradient-text">Key Features</h2>
         <div class="features-grid">
@@ -201,7 +283,6 @@
         </div>
     </section>
 
-    <!-- Modules Section -->
     <section>
         <h2 class="section-title gradient-text">Our Learning Tools</h2>
         <div class="modules-grid">
@@ -212,62 +293,74 @@
         </div>
     </section>
 
-    <!-- Editorial Board Section -->
     <section class="editorial-board">
         <h2 class="section-title gradient-text">Editorial Board</h2>
         <p style="color: var(--muted-text); margin-bottom: 1rem;">Editor-in-Chief: A. Jamshed, FRCR</p>
         <ul class="board-grid">
-            <li>Amna Munawar, FCPS, FRCR</li><li>Anas Tahseen, MBBS</li>
-            <li>Asghar Hussain Asghar, FCPS</li><li>Asif Masood, FCPS</li>
-            <li>Asma Rashid, FCPS, FRCR</li><li>Atta Ur Rehman Maaz, FRCP</li>
-            <li>Iqrama Tanveer, MBBS</li><li>Irfan Haider, FCPS</li>
-            <li>Laraib Khan, FCPS</li><li>Mohsin Fareed, FCPS, MD</li>
-            <li>Muhammad Ali, FCPS, FRANZCR</li><li>Muhammad Bilal, FCPS</li>
-            <li>Muneeb Uddin Karim, FCPS</li><li>Mutahir Tunio, FCPS, FRCR</li>
-            <li>Nasir Ali, FCPS</li><li>Noor Soomro, DMRT</li>
-            <li>Noreen Amjad, Msc</li><li>Sadaf Usman, FCPS, FRCR</li>
-            <li>Samaha Nawaz, FCPS, FRCR</li><li>Shahid Hameed, FCPS, MD</li>
-            <li>Shoaib Ahmad, FCPS, FRCR</li><li>Tahir Mehmood, FCPS</li>
+            <li>Amna Munawar, FCPS, FRCR</li>
+            <li>Anas Tahseen, MBBS</li>
+            <li>Asghar Hussain Asghar, FCPS</li>
+            <li>Asif Masood, FCPS</li>
+            <li>Asma Rashid, FCPS, FRCR</li>
+            <li>Atta Ur Rehman Maaz, FRCP</li>
+            <li>Ikrama Tanveer, MBBS</li>
+            <li>Irfan Haider, FCPS</li>
+            <li>Khaliq Ur Rehman, FCPS, FRCR</li>
+            <li>Laraib Khan, FCPS</li>
+            <li>Mohsin Fareed, FCPS, MD</li>
+            <li>Muhammad Ali, FCPS, FRANZCR</li>
+            <li>Muhammad Bilal, FCPS</li>
+            <li>Muneeb Uddin Karim, FCPS</li>
+            <li>Mutahir Tunio, FCPS, FRCR</li>
+            <li>Nasir Ali, FCPS</li>
+            <li>Noor Soomro, MCPS</li>
+            <li>Noreen Amjad, MPhil, HCP, DIMPCB</li>
+            <li>Sadaf Usman, FCPS, FRCR</li>
+            <li>Samaha Nawaz, FCPS, FRCR</li>
+            <li>Shahid Hameed, FCPS, MD</li>
+            <li>Shoaib Ahmad, FCPS, FRCR</li>
+            <li>Tahir Mehmood, FCPS</li>
             <li>Waqas Ishtiaq, FCPS, FRCR</li>
         </ul>
     </section>
 
-    <!-- Footer Section -->
-    <footer class="landing-footer card-glass">
-        <div class="footer-grid">
-            <div class="footer-section">
+    <section>
+        <h2 class="section-title gradient-text">Connect & Support</h2>
+        <div class="contact-grid">
+            <div class="contact-card card-glass">
                 <h3>CONTACT US</h3>
                 <p><i class="fas fa-envelope"></i> <a href="mailto:oncoedge@gmail.com">oncoedge@gmail.com</a></p>
                 <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/923461446946" target="_blank">+92 346 144 6946</a></p>
+                <p>Created and Developed by A. Jamshed & A. Tahseen © 2025 OncoEdge. All rights reserved.</p>
             </div>
-            <div class="footer-section">
+            <div class="contact-card card-glass">
                 <h3>WHATSAPP SUPPORT GROUP</h3>
                 <div class="qr-code">
                     <a href="https://chat.whatsapp.com/LwUkVH1dZF1LhkieBgU65j" target="_blank">
-                        <img src="./imgs/QRWA.png" alt="WhatsApp Group QR Code">
+                        <img src="./imgs/QRWA.png" alt="WhatsApp Group QR Code" onerror="this.onerror=null;this.src='https://placehold.co/120x120/ffffff/000000?text=QR+Code';">
                     </a>
                 </div>
             </div>
-            <div class="footer-section">
+            <div class="contact-card card-glass">
                 <h3>SUPPORTED BY</h3>
                 <p>An Unrestricted Educational Grant from</p>
-                <img src="./imgs/Himmel.png" alt="Himmel Pharma Logo" class="himmel-logo">
-                <p><strong>Himmel Pharma Pvt.</strong></p>
+                <p><strong>Himmel Pharma Pvt.</strong></p><img src="./imgs/Himmel.png" alt="Himmel Pharma Logo" class="himmel-logo-large" onerror="this.onerror=null;this.style.display='none';">
+            </div>
+            <div class="contact-card card-glass">
+                <h3>CREATED BY</h3>
+                <p>A. Jamshed & A. Tahseen</p>
+                
+                <p><strong>© 2025 OncoEdge. All rights reserved.</strong></p><img src="./imgs/OncoEdge Logo.png" alt="Himmel Pharma Logo" class="himmel-logo-large" onerror="this.onerror=null;this.style.display='none';">
             </div>
         </div>
-        <div class="created-by">
-            <p>Created and Developed by A. Jamshed & A. Tahseen</p>
-            <p>&copy; 2025 OncoEdge. All rights reserved.</p>
-        </div>
-    </footer>
-
+    </section>
   </div>
 
+  <footer class="banner">
+    <p>&copy; 2025 <img src="./imgs/Himmel.png" alt="Himmel Logo" class="himmel-logo"> <span class="gradient-text">Himmel Education</span>. All rights reserved</p>
+  </footer>
+
   <script src="scripts/theme-manager.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // You can add any landing-page specific JS here if needed in the future.
-    });
-  </script>
+  <!-- Removed script for dynamic padding -->
 </body>
 </html>
