@@ -1,0 +1,582 @@
+/* Shared Theme Variables and Styles for Himmel Education */
+
+/* Theme Variables */
+:root {
+  --glass-card-bg: rgba(30, 30, 40, 0.45);
+  --glass-card-border: rgba(255, 255, 255, 0.15);
+  --auth-page-bg: url('https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=2029&auto=format&fit=crop');
+  --bg-gradient-start: #0f172a;
+  --bg-gradient-mid: #1e1b4b;
+  --bg-gradient-end: #3b0764;
+  --text-color: #ffffff;
+  --card-bg: rgba(0, 0, 0, 0.4);
+  --card-bg-rgb: 0, 0, 0;
+  --card-border: rgba(139, 92, 246, 0.3);
+  --banner-bg: rgba(0, 0, 0, 0.5);
+  --banner-glass-bg: rgba(255, 255, 255, 0.15);
+  --banner-glass-border: rgba(255, 255, 255, 0.2);
+  --option-bg: rgba(0, 0, 0, 0.3);
+  --option-hover-bg: rgba(139, 92, 246, 0.2);
+  --option-selected-bg: rgba(139, 92, 246, 0.5);
+  --option-selected-border: rgba(139, 92, 246, 1);
+  --option-marker-bg: #4b5563;
+  --option-marker-selected-bg: #8b5cf6;
+  --accent-color: #a855f7;
+  --accent-gradient-start: #22d3ee;
+  --accent-gradient-end: #a855f7;
+  --dialog-bg: #1f2937;
+  --btn-primary-bg: #7c3aed;
+  --btn-primary-border: #8b5cf6;
+  --btn-primary-hover: #8b5cf6;
+  --btn-secondary-bg: #374151;
+  --btn-secondary-border: #4b5563;
+  --btn-secondary-hover: #4b5563;
+  --scrollbar-track: rgba(0, 0, 0, 0.2);
+  --scrollbar-thumb: rgba(139, 92, 246, 0.5);
+  --scrollbar-thumb-hover: rgba(139, 92, 246, 0.8);
+  --muted-text: #9ca3af;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --unattempted-bg: rgba(245, 158, 11, 0.3);
+  --unattempted-border: rgba(245, 158, 11, 0.5);
+  --unattempted-color: #fbbf24;
+  --correct-answer-bg: #10b981;
+  --wrong-answer-bg: #ef4444;
+  --button-bg: #8b5cf6;
+  --button-hover-bg: #7c3aed;
+  --button-text: #ffffff;
+  --input-bg: rgba(0, 0, 0, 0.3);
+  --input-border: rgba(139, 92, 246, 0.5);
+  --input-text: #ffffff;
+  --modal-bg: rgba(0, 0, 0, 0.6);
+  --modal-content-bg: #1a202c;
+  --modal-content-border: rgba(139, 92, 246, 0.5);
+  --footer-height: 0px;
+  --header-height: 80px; /* Approximate height of your header */
+
+
+  /* Chart Colors - Dark Theme */
+  --chart-correct-dark: #10b981;    /* Emerald green */
+  --chart-incorrect-dark: #ef4444;  /* Red */
+  --chart-unanswered-dark: #f59e0b; /* Amber */
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  --glass-card-bg: rgba(255, 255, 255, 0.5);
+  --glass-card-border: rgba(0, 0, 0, 0.1);
+  /* UPDATED: More professional and subtle background for auth page */
+  --auth-page-bg: url('https://images.unsplash.com/photo-1599389887503-345f43305b67?q=80&w=1974&auto=format&fit=crop');
+  /* UPDATED: Cleaner, more professional gradient for the main background */
+  --bg-gradient-start: #f8fafc;
+  --bg-gradient-mid: #f1f5f9;
+  --bg-gradient-end: #e2e8f0;
+  --text-color: #1e293b;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-bg-rgb: 255, 255, 255;
+  --card-border: rgba(139, 92, 246, 0.3);
+  --banner-bg: rgba(255, 255, 255, 0.8);
+  --banner-glass-bg: rgba(255, 255, 255, 0.7);
+  --banner-glass-border: rgba(59, 130, 246, 0.3);
+  --option-bg: rgba(255, 255, 255, 0.7);
+  --option-hover-bg: rgba(139, 92, 246, 0.1);
+  --option-selected-bg: rgba(139, 92, 246, 0.2);
+  --option-selected-border: rgba(139, 92, 246, 0.8);
+  --option-marker-bg: #d1d5db;
+  --option-marker-selected-bg: #8b5cf6;
+  --accent-color: #8b5cf6;
+  --accent-gradient-start: #06b6d4;
+  --accent-gradient-end: #8b5cf6;
+  --dialog-bg: #ffffff;
+  --btn-primary-bg: #8b5cf6;
+  --btn-primary-border: #7c3aed;
+  --btn-primary-hover: #7c3aed;
+  --btn-secondary-bg: #e5e7eb;
+  --btn-secondary-border: #d1d5db;
+  --btn-secondary-hover: #d1d5db;
+  --scrollbar-track: rgba(0, 0, 0, 0.05);
+  --scrollbar-thumb: rgba(139, 92, 246, 0.3);
+  --scrollbar-thumb-hover: rgba(139, 92, 246, 0.5);
+  --muted-text: #6b7280;
+  --unattempted-bg: rgba(59, 130, 246, 0.2);
+  --unattempted-border: rgba(59, 130, 246, 0.4);
+  --unattempted-color: #3b82f6;
+  --correct-answer-bg: #34d399;
+  --wrong-answer-bg: #f87171;
+  --button-bg: #3b82f6;
+  --button-hover-bg: #2563eb;
+  --button-text: #ffffff;
+  --input-bg: rgba(255, 255, 255, 0.7);
+  --input-border: rgba(59, 130, 246, 0.5);
+  --input-text: #1a202c;
+  --modal-bg: rgba(0, 0, 0, 0.4);
+  --modal-content-bg: #f0f0f0;
+  --modal-content-border: rgba(59, 130, 246, 0.5);
+
+  /* Chart Colors - Light Theme */
+  --chart-correct-light: #16a34a;    /* Green */
+  --chart-incorrect-light: #dc2626;  /* Darker Red */
+  --chart-unanswered-light: #d97706; /* Darker Amber */
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end));
+  color: var(--text-color);
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background 0.3s ease;
+  overflow-x: hidden;
+  /* Combined padding-top for fixed header and safe area */
+  padding-top: calc(var(--header-height) + env(safe-area-inset-top));
+  /* Adjust padding-bottom to account for fixed footer height + safe area */
+  padding-bottom: calc(180px + env(safe-area-inset-bottom)); /* Original 180px + safe area */
+  position: relative;
+}
+
+/* Add a fixed background layer */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end));
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Typography */
+h1 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  margin-bottom: 2rem;
+  line-height: 1.3;
+  text-align: center;
+}
+
+h2 {
+  font-size: clamp(1.25rem, 4vw, 1.8rem);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+/* Gradient Text - Applied consistently across all pages */
+.gradient-text {
+  background: linear-gradient(to right, var(--accent-gradient-start), var(--accent-gradient-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+}
+
+/* Layout */
+.container {
+  max-width: min(95vw, 1200px);
+  margin: 1rem auto;
+  padding: clamp(0.5rem, 2vw, 1rem);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center cards horizontally */
+  justify-content: center;
+  flex-grow: 1;
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: clamp(0.8rem, 2.5vw, 1.2rem);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, border 0.3s ease;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Add this new class to your shared-theme.css file */
+.card-glass {
+  background: var(--glass-card-bg);
+  border: 1px solid var(--glass-card-border);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+/* Button Styles */
+.btn {
+  padding: clamp(0.6rem, 2.5vw, 0.8rem) clamp(1.5rem, 5vw, 2rem);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border: 1px solid var(--card-border);
+  background-color: transparent;
+  color: var(--text-color);
+  font-size: clamp(0.9rem, 2.8vw, 1rem);
+  min-height: 45px;
+  white-space: nowrap;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 300px;
+  margin-top: 1rem;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: var(--option-hover-bg);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background-color: var(--btn-primary-bg);
+  border-color: var(--btn-primary-border);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--btn-primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--btn-secondary-bg);
+  border-color: var(--btn-secondary-border);
+  color: var(--text-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--btn-secondary-hover);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  padding: clamp(0.3rem, 1.5vw, 0.4rem);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 1px solid var(--card-border);
+  color: var(--text-color);
+  transition: all 0.2s ease;
+  min-width: 44px;
+  min-height: 44px;
+  z-index: 100;
+}
+
+.theme-toggle:hover {
+  background-color: var(--option-hover-bg);
+}
+
+.theme-toggle i {
+  font-size: clamp(1rem, 2.8vw, 1.25rem);
+}
+
+/* Banner Styles */
+.banner {
+  width: 100%;
+  background-color: var(--banner-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem clamp(1rem, 5vw, 2rem);
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  flex-shrink: 0;
+  z-index: 1000;
+}
+
+header.banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: calc(1rem + env(safe-area-inset-top));
+  border-bottom: 1px solid var(--card-border);
+  border-top: none;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+}
+
+footer.banner {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid var(--card-border);
+  border-bottom: none;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  padding: 0.75rem clamp(1rem, 5vw, 2rem);
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+  justify-content: center;
+  z-index: 1000;
+  background-color: var(--banner-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-and-description {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.banner .logo {
+  max-height: 80px;
+  width: auto;
+  flex-shrink: 0;
+  padding: 0px;
+}
+
+.banner .description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.banner .description h2 {
+  margin-bottom: 0;
+  font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+  font-weight: 600;
+}
+
+.banner .description p {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  color: var(--muted-text);
+}
+
+/* Options */
+.option {
+  padding: clamp(0.75rem, 2.5vw, 1rem);
+  margin: clamp(0.5rem, 1.5vw, 0.75rem) 0;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: var(--option-bg);
+  border: 1px solid var(--card-border);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: flex-start; 
+  gap: clamp(0.75rem, 2vw, 1rem);
+  min-height: 60px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+.option:hover {
+  background-color: var(--option-hover-bg);
+  transform: translateY(-2px);
+}
+
+.option:active {
+  transform: translateY(0);
+}
+
+.option.selected {
+  background-color: var(--option-selected-bg);
+  border-color: var(--option-selected-border);
+}
+
+.option-marker {
+  width: clamp(20px, 5vw, 24px);
+  height: clamp(20px, 5vw, 24px);
+  min-width: clamp(20px, 5vw, 24px);
+  min-height: clamp(20px, 5vw, 24px);
+  border-radius: 50%;
+  background-color: var(--option-marker-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  font-size: clamp(0.625rem, 2vw, 0.75rem);
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.option.selected .option-marker {
+  background-color: var(--option-marker-selected-bg);
+}
+
+.option > div:last-child {
+  flex: 1;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  line-height: 1.5;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Utility classes */
+.hidden {
+  display: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  header.banner {
+    padding: calc(0.75rem + env(safe-area-inset-top)) clamp(0.75rem, 3vw, 1rem) 0.75rem;
+  }
+
+  footer.banner {
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+  }
+
+  .banner .logo {
+    max-height: 60px;
+    margin-bottom: 0;
+  }
+
+  .banner .description h2 {
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+  }
+
+  .banner .description p {
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .btn {
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+    min-height: 45px;
+    padding: clamp(0.6rem, 2.5vw, 0.8rem) clamp(1rem, 4vw, 1.5rem);
+  }
+}
+
+/* Ensure full height coverage for dynamic content pages */
+html {
+  height: 100%;
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end));
+}
+
+/* Fix for mobile devices */
+@media (max-width: 768px) {
+  body::before {
+    position: fixed;
+    height: 100vh;
+    min-height: 100vh;
+  }
+
+  html {
+    min-height: 100vh;
+    height: auto;
+  }
+
+  body {
+    min-height: 100vh;
+    height: auto;
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  /* Improve scrolling performance */
+  body {
+    -webkit-overflow-scrolling: touch;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Optimize backdrop filters for mobile */
+  .card {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .banner {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  /* Ensure footer stays at bottom on mobile */
+  footer.banner {
+    position: fixed !important;
+    bottom: 0 !important;
+    z-index: 1000 !important;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  html::before {
+    background-image: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end));
+    background-size: 100% 100%;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  html::before {
+    transition: none;
+  }
+
+  body {
+    scroll-behavior: auto;
+  }
+
+  .card,
+  .btn,
+  .option {
+    transition: none;
+  }
+}
